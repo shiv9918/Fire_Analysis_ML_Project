@@ -13,11 +13,8 @@ standard_scaler = pickle.load(open('models/scaler.pkl', 'rb'))
 
 
 
-@app.route("/")
-def index():
-    return render_template("index.html")
 
-@app.route('/predictdata', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def predict_datapoint():
     if request.method == 'POST':
         Temperature = float(request.form.get('Temperature'))
